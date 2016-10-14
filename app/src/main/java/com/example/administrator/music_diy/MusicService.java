@@ -8,13 +8,16 @@ import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
+
 import com.example.administrator.music_diy.util.MusicResource;
 
 /**
- * Created by Administrator on 2016/10/4.
+ * Created by ZJU.luohl on 2016/10/4.
  */
 
 public class MusicService extends Service {
+    private String TAG = "mainActivity";
     private int nextMusic;
     private int isPlay;
     private int progress;
@@ -42,6 +45,7 @@ public class MusicService extends Service {
             }
         });
         super.onCreate();
+        Log.d(TAG,"git testing");
     }
 
     public class MyBroadcastReceiver extends BroadcastReceiver{
@@ -127,7 +131,7 @@ public class MusicService extends Service {
                                 e.printStackTrace();
                             }
                         }
-                    };
+                    }
                 }.start();
             }catch (Exception e){
                 e.printStackTrace();
@@ -144,6 +148,6 @@ public class MusicService extends Service {
     @Override
     public void unregisterReceiver(BroadcastReceiver receiver) {
         super.unregisterReceiver(receiver);
-        unregisterReceiver(receiver);
+
     }
 }
